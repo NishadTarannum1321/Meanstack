@@ -1,0 +1,32 @@
+<!DOCTYPEhtml>
+<head>
+	<title>FORM</title>
+</head>
+<body>
+	<div>
+		<div>
+		<label>Email:</label>
+	
+	<input type="email" name="email">
+	</div>
+	<div>
+		<label>password</label>
+	<input type="password" name="password">
+	</div>
+	<div>
+		<button>submit</button>
+	</div>
+</div>
+	<script type="text/javascript">
+		var emailtxt=document.getElementsByName('email')[0];
+		var pwdtxt=document.getElementsByName('password')[0];
+		var submittxt=document.getElementsByTagName('button')[0];
+		submittxt.onclick=function(){
+			var data={}
+			data.email=emailtxt.value;
+			data.password=pwdtxt.value;
+			console.log(data);
+		}
+			</script>
+</body>
+</html>

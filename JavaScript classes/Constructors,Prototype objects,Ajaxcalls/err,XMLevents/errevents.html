@@ -1,0 +1,76 @@
+<!DOCTYPEhtml>
+<head>
+	<title>FORM</title>
+</head>
+<body>
+	<div>
+		<div>
+		<label>Email:</label>
+	
+	<input type="email" name="email">
+	</div>
+	<div>
+		<label>password</label>
+	<input type="password" name="password">
+	</div>
+	<div>
+		<button>submit</button>
+	</div>
+</div>
+	<script type="text/javascript"> 
+		var emailtxt=document.getElementsByName('email')[0];
+		var pwdtxt=document.getElementsByName('password')[0  ];
+		var submittxt=document.getElementsByTagName('button')[0];
+		var loginCredentials;
+		var xhr = new XMLHttpRequest();
+		
+	
+		submittxt.onclick=function(){
+		//	var data={}
+		//	data.email=emailtxt.value;
+		//	data.password=pwdtxt.value;
+		//	console.log(data);
+		loginCredentials= new BuildJsonData(emailtxt.value,pwdtxt.value);
+		SendDataToServer(loginCredentials);
+	}
+		function BuildJsonData(emailval,passwrdval){
+			this.email=emailval;
+			this.password=passwrdval;
+		}
+		function SendDataToServer(data){
+			console.log(data);
+			xhr.open('get','https://jsonplaceholder.typicode.com/users',true);
+		xhr.onreadystatechange= function(){
+			console.log('xhr.readystate',xhr.readyState);
+			console.log('xhr.status',xhr.status);
+			if(xhr.readyState==4&&xhr.status==200){
+				console.log('xhr.response',xhr.responseText);
+			}
+			else{
+				console.error('err',xhr.readyState,xhr.status);
+				//console.log('xhr.response',xhr.responseText);
+			}
+			}
+			console.log('xhr.readystate',xhr.readyState);
+			xhr.send(null);
+			console.log('xhr.readystate',xhr.readyState);
+			xhr.onprogress=function(e){
+				console.log('onprogress ',e,xhr.responseText);
+				console.warn('xhr.readystate',xhr.readyState);
+			}
+			
+				xhr.onloadend=function(e){
+					console.log('onloadend xhr.readystate',xhr.readyState);
+
+				
+			}
+			xhr.onloeadstart=function(e){
+				console.log('onloadendstart',xhr.readyState);
+			}
+		}
+
+			</script>
+			<script type="text/javascript" src="oojs.js"></script>
+
+</body>
+</html>

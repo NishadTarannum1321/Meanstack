@@ -1,0 +1,55 @@
+<!DOCTYPEhtml>
+<head>
+	<title></title>
+	<style type="text/css">
+	div#container div{
+		width: 200px;
+		border:2px solid pink;
+		float:left;
+	}
+</style>
+</head>
+	<body>
+	<div id="container">
+	<h3>Firstname Lastname</h3>
+		<h4>address</h4>
+		<ul>
+			<li>flatno;102,street24</li>
+			<li>hyderabad</li>
+		</ul>
+	</div>
+		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript">
+			var parentcontainer=document.getElementById('container');
+			console.log(data);
+			for( var i=0;i<data.length;i=i+1)
+			{
+				var heading=document.createElement("h3");
+				var container=document.createElement("div");
+				var listgroup=document.createElement("ul");
+				var listitems=document.createElement("li");
+				var listitems1=document.createElement("li");
+				var listitems2=document.createElement("li");
+				var stateinfo=document.createElement("li");
+				var orderinfo=document.createElement("li");
+				console.log(data[i].firstName+" "+data[i].lastName);
+				heading.innerText=data[i].firstName+" "+data[i].lastName;
+				listitems.innerText=data[i].city;
+				listitems1.innerText=data[i].address;
+				listitems2.innerText=data[i].gender;
+				
+				stateinfo.innerText=statedetails.abbreviation;
+				stateinfo.innerText=statedetails.name;
+				var orderdetails=data[i].orders;
+				orderinfo.innerText=orderdetails.productName;
+				listgroup.appendChild(listitems);
+				listgroup.appendChild(listitems1);
+				listgroup.appendChild(listitems2);
+				listgroup.appendChild(orderinfo);
+				listgroup.appendChild(stateinfo);
+				container.appendChild(heading);
+				container.appendChild(listgroup);
+				parentcontainer.appendChild(container);
+
+			}
+		</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var promise=new Promise(function(resolve,reject){
+			var a=60;
+			resolve(a);
+		})
+			promise.then(function(val){
+				console.log('resolve call value',val);
+				return val;
+			}).then(function(val){
+				console.log('assigned/return value',val);
+			})
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div#container div{
+			width:200px;
+			border:2px solid orange;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<!-- <h2>customers details</h2> -->
+	<div id="container">
+		<h3>firstName lastName</h3>
+		<h4>address</h4>
+
+		<ul>
+			<li>flat no 02 , streetno11</li>
+			<li>hyderabad</li>
+
+		</ul>
+		</div>
+		<script type="text/javascript">
+		// console.log(data);
+	</script>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="sample.js"></script>
+	<script type="text/javascript">
+		// IIFE
+			(function(global)
+				{
+					var domObject = {};
+				domObject.parentContainer = document.getElementById('container'); console.log(data);
+				for(var i = 0 ; i < data.length; i = i+1  ){
+					domObject.heading = document.createElement('h3');
+					domObject.container = document.createElement('div');
+					domObject.listGroup = document.createElement('ul');
+					domObject.listItem = document.createElement('li');
+					console.log(data[i].firstName);
+					domObject.heading.innerText = data[i].firstName;
+					domObject.listItem.innerText = data[i].city
+					domObject.listGroup.appendChild(domObject.listItem);
+					domObject.container.appendChild(domObject.heading);
+					domObject.container.appendChild(domObject.listGroup)
+					domObject.parentContainer.appendChild(domObject.container);
+				}
+			global._heading=domObject.heading;
+			global._domObject=domObject;
+		})
+		(window);
+
+				(function()
+				{
+					console.log(this);
+					var testvar=20;
+					console.log(testvar);
+					console.log("IIFE",this);
+				})();
+				function createformdata()
+				{
+					console.log(this);
+				}
+console.log(this);
+
+var sampleObj={
+	num:10,
+	test:function(){
+		console.log(this);
+		var selfThis=this;
+		function test1(){
+			console.log(this);
+			console.log(selfThis);
+
+		}
+		test1();
+
+	}
+}
+sampleObj.test();
+			</script>
+
+
+</body>
+</html>

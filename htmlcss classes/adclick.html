@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="box">
+<label>status</label>
+		<input type="checkbox" name="status">
+		<label>Input text</label>
+		<input type="text" name="inputtext"><br>
+		<button name="edit" onclick="document.getElementsByName('edit').innerHtml(datainput)">Edit</button><button name="delete">Delete</button>
+	</div>
+	<script type="text/javascript">
+		var statustxt=document.getElementsByName('status')[0];
+
+		var inptext=document.getElementsByName('inputtext')[0];
+		var editbtn=document.getElementsByTagName('button')[0];
+		var delbtn=document.getElementsByTagName('button')[1];
+		var boxcont=document.getElementById('box');
+		var datainput;
+        editbtn.onclick=function(){
+datainput=new JsonInput(inptext.value);
+console.log(datainput);
+document.body.appendchild(inptext);
+inptext.appendchild(box);
+		}
+		function JsonInput(inptval){
+			this.inputtext=inptval;
+		}
+	</script>
+</body>
+</html>

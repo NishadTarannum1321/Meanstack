@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function retobj(Fn){
+			Fn(function(){},function(){})
+		}
+		retobj(function(resolve,reject){});
+		var promise=new Promise(function(resolve,reject){
+var xhr= new XMLHttpRequest();
+			xhr.open('get','https://jsonplaceholder.typicode.com/posts',true);
+		xhr.onreadystatechange= function(){
+			console.log('xhr.readystate',xhr.readyState);
+			console.log('xhr.status',xhr.status);
+			if(xhr.readyState==4&&xhr.status==200){
+				//console.log('xhrr
+			//	console.log('xhr.response',xhr.responseText);
+			resolve(xhr.responseText);
+			}
+			else{
+				//console.error('err',xhr.readyState,xhr.status);
+				//console.log('xhr.response',xhr.responseText);
+			//reject(xhr.status);
+			}
+			}
+			//console.log('xhr.readystate',xhr.readyState);
+			xhr.send();
+		});
+		promise.then(function(val){
+			console.log('resolve method cal',val);
+			return val;
+		}).then(function(val){
+			console.log('first iteration',val);
+		})
+	</script>
+
+</body>
+</html>

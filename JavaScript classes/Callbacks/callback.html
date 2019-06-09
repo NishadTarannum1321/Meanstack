@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var _name='krishna';
+		var _lastname='radhe';
+		console.log(_name+_lastname);
+		setTimeout(function()
+		{
+			console.log(10)
+			console.log(this);
+		},2000)
+		console.log('after settimeout');
+			function test()
+			{
+				console.log('inside the stmt function');
+			}
+			test();
+	</script>
+</body>
+</html>

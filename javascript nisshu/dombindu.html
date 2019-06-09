@@ -1,0 +1,66 @@
+<httml lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>Document</title>
+    <style type="text/css">
+    div#container div{
+        width: 200px;
+        border: 2px solid blue;
+        float: right;
+        
+    }
+    
+    </style>
+    </head>
+    <body>
+        <div id="container">
+<h1>hiiii</h1>
+<p>this is paragraph</p>
+</div>
+    </body>
+  
+    <script type="text/javascript" src="data.js">
+    </script>
+    <script type="text/javascript" >
+    console.log(data); 
+    var parentContainer=document.getElementById('container');
+    for(var i=0;i<data.length;i++){
+        var heading=document.createElement('h1');
+        var container=document.createElement('div');
+        var listgroup=document.createElement('ul');
+        var listitem=document.createElement('li');
+var stateInfo=document.createElement('li');
+var orderInfo=document.createElement('li');
+var latitude=document.createElement('h5');
+
+
+       
+        // heading.setAttribute("style", "background-color:blue; font-size:2em;border: 5px solid green; ");
+        // heading.style.cssText = 'position:absolute;top:300px;left:300px;width:200px;height:200px;-moz-border-radius:100px;border:1px  solid #ddd;-moz-box-shadow: 0px 0px 8px  #fff;display:none;';
+
+        heading.innerText=data[i].fname;
+        document.body.appendChild(heading);
+        listitem.innerText=data[i].city;
+        var stateDetails=data[i].state;
+       stateInfo.innerText= stateDetails.name;
+       var orderDetails=data[i].orders
+       orderInfo.innerText= orderDetails.name;
+       latitude.innerText= data[i].lati;
+
+        listgroup.appendChild(listitem);
+        listgroup.appendChild(orderInfo);
+        listgroup.appendChild(stateInfo);
+
+        container.appendChild(listgroup);
+        container.appendChild(heading);
+        container.appendChild(latitude);
+        parentContainer.appendChild(container);
+    
+
+        
+
+    }
+    </script>
+</html>

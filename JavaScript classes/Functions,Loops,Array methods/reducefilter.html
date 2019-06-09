@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr21=[2,3,4,5,6];
+			var arr51 = arr21.filter(function(val){
+		if(val > 3){
+			return val;
+		}
+	});
+
+	var arr31=[1,2,3,4,5,6]
+var arr61 = arr31.reduce(function(cum,init,index,arr){
+		console.log('cummulativevalue', cum);
+		console.log('initial value',init);
+		console.log('index num',index);
+		console.log('arr3',arr);
+		return cum + init;
+	},10);
+var arr71 =  [[1,2],[3,4],[5,6]];
+	var arr81 = arr71.reduce(function(cum,init,index,arr){
+		return cum.concat(init);
+	}); 
+</script> 
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style type="text/css">
+    div#container div{
+        width: 200px;
+        border: 2px solid blue;
+        float: right
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h3>firstname lastname</h3>
+        <h4>Address</h4>
+        <!-- <p><i>Gender</i>:male/female</p> -->
+        <ul>
+            <li>flat no 2,street no11 </li>
+            <li>hyderabad</li>
+        </ul>
+        
+    </div>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript">
+    var parentContainer=document.getElementById('container');
+    console.log(data);
+    for(var i=0;i<data.length;i++){
+        var heading=document.createElement('h3');
+        var container=document.createElement('div');
+       
+        var stateListGroup=document.createElement('ul');
+        
+
+        var listitem=document.createElement('li');
+        var stateInfo=document.createElement('li');
+       
+
+
+             heading.innerText=data[i].firstName;
+             listitem.innerText=data[i].city;
+            var stateDetails=data[i].state;
+            var orderDetails=data[i].orders;
+            stateInfo.innerText=stateDetails.abbreviation;
+            stateInfo.innerText=stateDetails.name;
+            console.log("orderDetails",orderDetails);
+             stateListGroup.appendChild(listitem);
+             stateListGroup.appendChild(stateInfo);
+             container.appendChild(heading);
+             container.appendChild(stateListGroup);
+            for(var j=0;j<orderDetails. length;j++){
+                var listgroup=document.createElement('ul');
+                var orderItemName=document.createElement('li');
+                var orderItemCost=document.createElement('li');
+                orderItemName.innerText=orderDetails[j].productName;
+                orderItemCost.innerText=orderDetails[j].itemCost;
+                listgroup.appendChild(orderItemName);
+                listgroup.appendChild(orderItemCost);
+                container.appendChild(listgroup);
+                
+            }
+parentContainer.appendChild(container);
+        }
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <title>Document</title>
+    <style type="text/css">
+        div#container div {
+            width: 250px;
+            border: 2px solid orange;
+            top: 10px;
+        }
+
+
+        #container_ {
+            position: absolute;
+            /* added */
+            height: 40px;
+            bottom: 30%;
+            width: 250px;
+            /* added */
+            left: 0;
+            opacity: 1;
+
+            /* added */
+        }
+       
+      
+    </style>
+</head>
+
+<body>
+    <button type="button" class="btn btn-success">Add</button>
+    <div id="container_">
+        <button>hi</button>
+
+    </div>
+    
+  
+    <div id="container">
+
+    </div>
+    <script type="text/javascript">
+
+
+
+        var addBtn = document.getElementsByTagName('button')[0];
+        var parentContainer1 = document.getElementById('container_');
+        var parentContainer = document.getElementById('container');
+        addBtn.onclick = function () {
+            // alert("button onClick");
+
+            var div = document.createElement("div");
+            div.style.backgroundColor = "lightblue";
+            div.style.position = "absolute";
+            div.style.left = "50px";
+            div.style.top = "50px";
+
+            var checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "checkbox";
+            checkbox.value = "value";
+            checkbox.id = "checkbox";
+
+            var label = document.createElement('label')
+            label.htmlFor = "id";
+            checkbox.id = "labelId";
+            label.appendChild(document.createTextNode(''));
+
+            var userInput = document.createElement('input');
+            userInput.type = "text";
+            userInput.name = "textinput";
+            userInput.placeholder = "enter text here";
+            userInput.id = "usertext";
+
+            var edit = document.createElement('button');
+            var editText = document.createTextNode('edit');          // CREATE TEXT FOR THE BUTTON
+            edit.appendChild(editText);
+            edit.style.height = '30px';
+            edit.style.width = '80px';
+            edit.title = "Edit";
+
+            var deleteRecord = document.createElement('button');
+            var deleteText = document.createTextNode('delete');          // CREATE TEXT FOR THE BUTTON
+            deleteRecord.appendChild(deleteText);
+            deleteRecord.style.height = '30px';
+            deleteRecord.style.width = '80px';
+
+            //    var inputText= document.createElement('text');
+            //    textLabel.innerText="hi";
+            //    inputText.innerText="hello";
+
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            div.appendChild(userInput);
+            div.appendChild(edit);
+            div.appendChild(deleteRecord);
+
+            parentContainer.appendChild(div);
+            edit.onclick = function () {
+                var InputText = document.getElementById("usertext").value;
+                //  alert(InputText);
+                label.appendChild(document.createTextNode(InputText));
+
+            }
+            deleteRecord.onclick = function () {
+                parentContainer.removeChild(div);
+            }
+
+            var checkbox = document.querySelector("input[name=checkbox]");
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    alert("checked");
+                    var label = document.createElement('label')
+                    label.htmlFor = "id";
+                    checkbox.id = "labelIdChecked";
+                    label.appendChild(document.createTextNode('completed section'));
+                    var firstDivContent = document.getElementById('container');
+                    var secondDivContent = document.getElementById('container_');
+                    secondDivContent.innerHTML=firstDivContent.innerHTML;
+
+
+                    // document.getElementById("container_").innerHTML = document.getElementById("container").innerHTML
+
+                    // Checkbox is checked..
+                } 
+            });
+            //                     if (checkbox.checked) {
+            //                         alert("checkbox checked");
+            //                         document.getElementById("container_").innerHTML=document.getElementById("container").innerHTML
+
+
+            //                     }else{
+
+            //                     }
+
+            // <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br/></input>
+            // <label for="male">add Text Here</label>
+            // <input type="text" name="firstname"></input>
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

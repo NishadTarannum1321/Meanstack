@@ -1,0 +1,69 @@
+ <!DOCTYPEhtml>
+<head>
+	<title></title>
+	<style type="text/css">
+	div#container div{
+		width: 200px;
+		border:4px solid violet;
+		float:left;
+	}
+</style>
+</head>
+	<body>
+	<div id="container">
+	<h3>Firstname Lastname</h3>
+		<h4>address</h4>
+		<ul>
+			<li>flatno;102,street24</li>
+			<li>hyderabad</li>
+		</ul>
+	</div>
+		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript">
+			var parentcontainer=document.getElementById('container');
+			console.log(data);
+			for( var i=0;i<data.length;i=i+1)
+			{
+				var heading=document.createElement("h3");
+				var container=document.createElement("div");
+				var listgroup=document.createElement("ul");
+				var cityName=document.createElement("li");
+				var addressInfo=document.createElement("li");
+				var gendName=document.createElement("li");
+				var stateAbb=document.createElement("li");
+				var stateName=document.createElement("li");
+				var orderdetails=data[i].orders;
+				var statedetails=data[i].state;
+				console.log(data[i].firstName+" "+data[i].lastName);
+				heading.innerText=data[i].firstName+" "+data[i].lastName;
+				cityName.innerText=data[i].city;
+				addressInfo.innerText=data[i].address;
+				gendName.innerText=data[i].gender;
+				stateAbb.innerText=statedetails.abbreviation;
+				stateName.innerText=statedetails.name;
+			console.log("orderdetails",orderdetails);	
+					listgroup.appendChild(cityName);
+				
+				listgroup.appendChild(addressInfo);
+				listgroup.appendChild(gendName);
+				listgroup.appendChild(stateAbb);
+				listgroup.appendChild(stateName);
+  				container.appendChild(heading);
+				container.appendChild(listgroup);
+				for (var j=0;j<orderdetails.length;j=j+1){
+				
+				 var orderinfo=document.createElement("ul"); 
+				var prodNames=document.createElement("li");
+				var  costItems=document.createElement("li");
+			prodNames.innerText=orderdetails[j].productName;
+			costItems.innerText=orderdetails[j].itemCost;
+orderinfo.appendChild(prodNames);
+orderinfo.appendChild(costItems);
+				container.appendChild(orderinfo);
+			}
+				parentcontainer.appendChild(container);
+
+			}
+		</script>
+	</body>
+	</html>
